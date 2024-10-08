@@ -1,7 +1,11 @@
 // Devuelve la fecha actual en formato dd/mm/yyyy
 function obtenerFechaActual(){
-   
+  let fecha = new Date();
+  let dia = fecha.getDate() < 10 ? '0'+ fecha.getDate() : fecha.getDate();
+  let mes = (fecha.getMonth() + 1) < 10 ? '0'+ fecha.getMonth() : fecha.getMonth()+1;
+  let año = fecha.getFullYear();
   
+  return dia + '/' + mes +'/'+ año;
 }
 
 // Calcula el área de un círculo a partir de su radio con dos decimales
