@@ -8,42 +8,35 @@ document.addEventListener('DOMContentLoaded', () => {
     // Ejercicio 2
     document.getElementById('btnAreaCirculo').addEventListener('click', () => {
         const radio = parseFloat(document.getElementById('radioCirculo').value);
-        if (isNaN(radio) || radio < 0) {
-            alert('Por favor, ingrese un radio válido.');
-            return;
-        }
         const area = calcularAreaCirculo(radio);
         document.getElementById('resultadoArea').innerText = `Área del Círculo: ${area}`;
     });
 
-    // // Ejercicio 3
-    // document.getElementById('btnContarVocales').addEventListener('click', () => {
-    //     const cadena = document.getElementById('cadenaVocales').value;
-    //     const total = contarVocales(cadena);
-    //     document.getElementById('resultadoVocales').innerText = `Número de Vocales: ${total}`;
-    // });
+    // Ejercicio 3
+    document.getElementById('btnContarVocales').addEventListener('click', () => {
+        const cadena = document.getElementById('cadenaVocales').value;
+        const total = contarVocales(cadena);
+        document.getElementById('resultadoVocales').innerText = `Número de Vocales: ${total}`;
+    });
 
-    // // Ejercicio 4
-    // document.getElementById('btnCelsiusFahrenheit').addEventListener('click', () => {
-    //     const celsius = parseFloat(document.getElementById('celsius').value);
-    //     if (isNaN(celsius)) {
-    //         alert('Por favor, ingrese un valor válido para Celsius.');
-    //         return;
-    //     }
-    //     const fahrenheit = celsiusAFahrenheit(celsius);
-    //     document.getElementById('resultadoFahrenheit').innerText = `${celsius}°C = ${fahrenheit}°F`;
-    // });
+    // Ejercicio 4
+    document.getElementById('btnCelsiusFahrenheit').addEventListener('click', () => {
+        const celsius = parseFloat(document.getElementById('celsius').value);
+        if (isNaN(celsius)) {
+            alert('Por favor, ingrese un valor válido para Celsius.');
+        }else{
+            const fahrenheit = celsiusAFahrenheit(celsius);
+            document.getElementById('resultadoFahrenheit').innerText = `${celsius}°C = ${fahrenheit}°F`;
+        }
+    });
 
-    // // Ejercicio 5
-    // document.getElementById('btnFormatearNumero').addEventListener('click', () => {
-    //     const numero = parseFloat(document.getElementById('numeroFormatear').value);
-    //     if (isNaN(numero)) {
-    //         alert('Por favor, ingrese un número válido.');
-    //         return;
-    //     }
-    //     const numeroFormateado = formatearNumero(numero);
-    //     document.getElementById('resultadoNumero').innerText = `Número Formateado: ${numeroFormateado}`;
-    // });
+    // Ejercicio 5
+    document.getElementById('btnFormatearNumero').addEventListener('click', () => {
+        const numero = parseFloat(document.getElementById('numeroFormatear').value);
+       
+        const numeroFormateado = formatearNumero(numero);
+        document.getElementById('resultadoNumero').innerText = `Número Formateado: ${numeroFormateado}`;
+    });
 
     // // Ejercicio 6
     // document.getElementById('btnReyesMagos').addEventListener('click', () => {
