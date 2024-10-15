@@ -51,35 +51,48 @@ celsiusAFahrenheit = (celsius) => {
 
 // Crea una función que formatee un número agregando comas como separadores de miles.
 function formatearNumero(numero) {
-  if(isNaN(numero) || numero == ""){
-    console.log('aqui');
+  if(isNaN(numero) || typeof(numero) != "number"){
     return null;
   }else{
-    let cadenaNum = String(numero);
-    // console.log(cadenaNum.);
-    for(let i = cadenaNum.length; i >= 0; i--){
-      let cont = 0;
-      cont++;
-      let nuevoNum = nuevoNum + cadenaNum[i] ;
+    // Guardamos la parte entera en una variable
+    let cadenaNum = String(Math.floor(numero));
 
-      if(cont == 3){
+    // Separamos la parte decimal de la parte entera y guardamos los decimales en la variable 
+    let decimales = String(numero.toFixed(2)).split('.').splice(1);
+    
+    // Creamos los indices que utilizaremos en el substring
+    let indice1 = cadenaNum.length;
+    let indice2;
+    // Variable que vamos a utilizar para guardar el nuevo formato del numero
+    let newFormat = cadenaNum.substring(indice1, indice2);
 
-      }
-      console.log(cadenaNum[i]);
+    // Usamos un bucle while para evaluar de alante hacia atras 
+    while(indice1 >= 1 ){
+      indice2 = indice1;
+      indice1 -= 3;
+      newFormat += cadenaNum.
+                    substring(indice1, indice2).
+                    split('').reverse().join('') + ".";
+    } 
 
-    }
-    let numFormateado = cadenaNum.replace('.', ',');
-    return numFormateado;
+    // Damos la vuelta al resultado que nos ha salido del bucle, eliminando el punto inicial
+    newFormat = newFormat.split('').reverse().splice(1).join('');
+    // Evaluamos si tenemos decimales 
+    return Number(decimales) > 0 ? newFormat + ',' + decimales : newFormat;
   }
 }
 
 
 // Función que recibe un string en formato dd/mm/yyyy y devuelve el número de días que faltan para el 6 de Enero del año siguiente
 function reyesMagos(fecha) {
- 
-  }
+
+}
 
 
+// Función que genera un número aleatorio entre comienzo y fin
+function calcularAleatorio(comienzo, fin){
+
+}
 // Ejercicio 10: Convertir a lowerCamelCase
 function camelCase(cadena) {
   
@@ -92,10 +105,6 @@ function diasParaNavidad(){
 }
 
 
-// Función que genera un número aleatorio entre comienzo y fin
-function calcularAleatorio(comienzo, fin){
-
-}
 
 
 
