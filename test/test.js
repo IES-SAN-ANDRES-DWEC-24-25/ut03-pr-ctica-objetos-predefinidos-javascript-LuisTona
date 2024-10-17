@@ -206,7 +206,7 @@ describe("eje 8 esPalindromo", function () {
 describe("eje 9 camelCase", function () {
   it("debe convertir correctamente la cadena a lowerCamelCase", function () {
     camelCase("hola mundo cruel").should.equal("holaMundoCruel");
-    camelCase("camión amarillo").should.equal("camionAmarillo");
+    camelCase("camion amarillo").should.equal("camionAmarillo");
   });
   it("debe manejar cadenas vacías", function () {
     camelCase("").should.equal("");

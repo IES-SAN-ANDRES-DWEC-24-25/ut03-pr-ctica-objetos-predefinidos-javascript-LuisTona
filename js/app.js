@@ -85,7 +85,7 @@ function formatearNumero(numero) {
 
 // Función que recibe un string en formato dd/mm/yyyy y devuelve el número de días que faltan para el 6 de Enero del año siguiente
 function reyesMagos(fecha) {
-  
+
   if(fecha.match(/[-]/g)){
     return null;
   }else{
@@ -116,31 +116,89 @@ function reyesMagos(fecha) {
 
 // Función que genera un número aleatorio entre comienzo y fin
 function calcularAleatorio(comienzo, fin){
-
-}
-// Ejercicio 10: Convertir a lowerCamelCase
-function camelCase(cadena) {
+  let numAleatorio = 0;
   
+  if(comienzo == fin){
+    return fin;
+  }else if(fin < comienzo){
+    return null;
+  }else if(isNaN(comienzo) || isNaN(fin) ||comienzo < 0 ){
+    return null;
+  }else{
+    while(numAleatorio < comienzo || numAleatorio > fin){
+      
+      numAleatorio = Math.ceil(Math.random()*(fin - comienzo + 1) + comienzo)
+    }
+      return Number(numAleatorio);
+  }
 }
-
-
-// Crear una función que devuelva el número de días que quedan para la próxima Navidad
-function diasParaNavidad(){
-
-}
-
-
-
-
-
 //   función para verificar si una cadena es un palíndromo sin utilizar expresiones regulares ni programación funcional
 function esPalindromo(cadena){
-
+  if(!isNaN(cadena)){
+    return false;
   
+  }else{
+    
+    let cont = 0;
+    let palabra = cadena.replaceAll(' ', '').toLowerCase();
+    let reverseCont= palabra.length-1;
+  
+    if(palabra == "" ){
+      return false;
+    }else if(!isNaN(cadena)){
+      return null;
+    }else{
+
+      while(cont <= reverseCont){
+        
+        if(palabra[cont] != palabra[reverseCont]){
+          return false;
+        }else {
+          cont++;
+          reverseCont--;
+        }
+  
+      }
+      return true;
+    }
+  }
+}
+
+// Ejercicio 10: Convertir a lowerCamelCase
+function camelCase(cadena) {
+
+  if(!isNaN(cadena) && cadena != ""){
+    return null;
+  }else if(!isNaN(cadena) && cadena == ""){
+    return cadena;
+  }else{
+
+    let arrayCadena = cadena.split(' ');
+    let palabra = '';
+    
+    for(let i = 1; i < arrayCadena.length; i++){
+  
+      if(arrayCadena[i] == ""){
+        arrayCadena.splice(i, 1);
+      }else{
+        palabra = arrayCadena[i];
+        palabra = palabra.replace(palabra[0], palabra[0].toUpperCase());
+        arrayCadena[i] = palabra;
+      }
+    }
+    
+    arrayCadena = arrayCadena.join('')
+    return arrayCadena;
+  }
 }
 
 // Función que recibe un número y devuelve un string con el número escrito en palabras
 function numberToWords(num) {
- 
+  
+  
+}
+
+// Crear una función que devuelva el número de días que quedan para la próxima Navidad
+function diasParaNavidad(){
 
 }
