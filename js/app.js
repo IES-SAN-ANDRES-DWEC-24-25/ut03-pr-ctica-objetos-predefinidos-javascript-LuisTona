@@ -166,12 +166,16 @@ function esPalindromo(cadena){
 
 // Ejercicio 10: Convertir a lowerCamelCase
 function camelCase(cadena) {
-
-  if(!isNaN(cadena) && cadena != ""){
+  
+  if(typeof(cadena) != 'string'){
     return null;
-  }else if(!isNaN(cadena) && cadena == ""){
+
+  }else if(cadena == ""){
     return cadena;
+
   }else{
+    
+    cadena = cadena.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
     let arrayCadena = cadena.split(' ');
     let palabra = '';
@@ -179,7 +183,12 @@ function camelCase(cadena) {
     for(let i = 1; i < arrayCadena.length; i++){
   
       if(arrayCadena[i] == ""){
-        arrayCadena.splice(i, 1);
+        while(arrayCadena[i] == ""){
+          arrayCadena.splice(i, 1);
+        }
+        palabra = arrayCadena[i];
+        palabra = palabra.replace(palabra[0], palabra[0].toUpperCase());
+        arrayCadena[i] = palabra;
       }else{
         palabra = arrayCadena[i];
         palabra = palabra.replace(palabra[0], palabra[0].toUpperCase());

@@ -78,11 +78,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         
         // // Ejercicio 9
-        // document.getElementById('btnCamelCase').addEventListener('click', () => {
-            //     const cadena = document.getElementById('cadenaCamelCase').value;
-            //     const camel = camelCase(cadena);
-            //     document.getElementById('resultadoCamelCase').innerText = `lowerCamelCase: ${camel}`;
-        // });
+        document.getElementById('btnCamelCase').addEventListener('click', () => {
+                const cadena = document.getElementById('cadenaCamelCase').value;
+                const camel = camelCase(cadena);
+                document.getElementById('resultadoCamelCase').innerText = `lowerCamelCase: ${camel}`;
+        });
         
         // // Ejercicio 10
         // document.getElementById('btnNumberToWords').addEventListener('click', () => {
