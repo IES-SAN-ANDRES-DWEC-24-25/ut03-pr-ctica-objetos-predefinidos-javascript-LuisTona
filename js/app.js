@@ -285,35 +285,3 @@ function numberToWords(num) {
     }
   }
 }
-
-// Crear una función que devuelva el número de días que quedan para la próxima Navidad
-
-// function unidades(num){
-//   let unidades = ['cero', 'uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve'];
-//   return unidades[num];
-// }
-
-// function decenas(num){
-  
-//   let decenas = ['veinte', 'treinta', 'cuarenta', 'cincuenta', 'sesenta', 'setenta', 'ochenta', 'noventa'];
-  
-//   // if (num >=10 && num < 20){
-    
-//   //   let especial = String(num)[1];
-//   //   return especiales[especial];
-  
-//   // }else if(num >= 20 && num < 100){
-  
-//   //   let decena = String(num)[0];
-
-//   //   if(num >= 21 && num < 30){
-//   //     numero = decenas[decena - 2].split('').slice(0,5).concat('i').join('') +''+ unidades[unidad];
-//   //   }else{
-//   //     numero = decenas[decena - 2] +' y '+unidades[unidad];
-//   //   }
-//   //   return numero;
-//   // }
-// }
-// function centenas(){
-
-// }
