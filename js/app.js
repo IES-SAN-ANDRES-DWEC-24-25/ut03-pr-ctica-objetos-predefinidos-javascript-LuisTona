@@ -203,11 +203,117 @@ function camelCase(cadena) {
 
 // Función que recibe un número y devuelve un string con el número escrito en palabras
 function numberToWords(num) {
+  let unidades = ['cero', 'uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve'];
+  let especiales = ['diez', 'once', 'doce', 'trece', 'catorce', 'quince', 'dieciseis', 'diecisiete', 'dieciocho', 'diecinueve'];
+  let decenas = ['veinte', 'treinta', 'cuarenta', 'cincuenta', 'sesenta', 'setenta', 'ochenta', 'noventa'];
+  let centenas = ['cien', 'doscientos', 'trescientos', 'cuatrocientos', 'quinientos', 'seiscientos', 'setecientos', 'ochocientos', 'novecientos'];
+
+  if(num > 999999 || !Number.isInteger(num) || num < 0){
+    throw 'El número debe ser un entero positivo entre 0 y 999,999.' ;
+  }
+  else if( num >= 100 && num < 1000){
+    let centena = String(num)[0];
+    let decena = String(num)[1];
+    let unidad = String(num)[2];
+
+    if(num > 100 && num < 110){
+      
+      centenas = centenas[centena - 1].split('').concat('to').join('') +' '+ unidades[unidad];
+      return centenas;
+
+    }else if(num >= 110 && num < 200){
+      
+      if(num >= 110 && num < 120){
+        centenas = centenas[centena - 1].split('').concat('to').join('') +' '+ especiales[unidad];
+        return centenas;
+
+      }else if(num >= 120 && num < 130){
+        numero = decenas[decena - 2].split('').slice(0,5).concat('i').join('')
+        centenas = centenas[centena - 1].split('').concat('to').join('') +' '+numero+' y '+ unidades[unidad];
+        return centenas;
+      }else{
+        centenas = centenas[centena - 1].split('').concat('to').join('') +' '+decenas[decena-2]+' y '+ unidades[unidad];
+      }
+      
+      
+    }else if(num >= 200 || num == 100){
+      if(decena == 1){
+        centenas = centenas[centena - 1].split('').concat('to').join('') +' '+ especiales[unidad];
+        return centenas;
+
+      }else if(decena == 2){
+        numero = decenas[decena - 2].split('').slice(0,5).concat('i').join('')
+        centenas = centenas[centena - 1].split('').concat('to').join('') +' '+numero+' y '+ unidades[unidad];
+        return centenas;
+      }else{
+        if(unidad == 0 && decena == 0){
+          return centenas[String(num)[0]-1]
+        }else if(unidad == 0){
+          centenas = centenas[centena - 1] +' '+decenas[decena-2];
+          return centenas;
+        }else{
+          centenas = centenas[centena - 1] +' '+decenas[decena-2]+' y '+ unidades[unidad];
+          return centenas
+        }
+      }
+
+    }
+
+  }else if(num < 10){
+    return unidades[num];
   
+  }else if (num >=10 && num < 20){
+    
+    let especial = String(num)[1];
+    return especiales[especial];
   
+  }else if(num >= 20 && num < 100){
+  
+    let decena = String(num)[0];
+    let unidad = String(num)[1];
+
+    if(unidad > 0){
+      let numero = '';
+      if(num >= 21 && num < 30){
+        numero = decenas[decena - 2].split('').slice(0,5).concat('i').join('') +''+ unidades[unidad];
+      }else{
+        numero = decenas[decena - 2] +' y '+unidades[unidad];
+      }
+      return numero;
+    }else{
+      return decenas[decena - 2];
+    }
+  }
 }
 
 // Crear una función que devuelva el número de días que quedan para la próxima Navidad
-function diasParaNavidad(){
 
-}
+// function unidades(num){
+//   let unidades = ['cero', 'uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve'];
+//   return unidades[num];
+// }
+
+// function decenas(num){
+  
+//   let decenas = ['veinte', 'treinta', 'cuarenta', 'cincuenta', 'sesenta', 'setenta', 'ochenta', 'noventa'];
+  
+//   // if (num >=10 && num < 20){
+    
+//   //   let especial = String(num)[1];
+//   //   return especiales[especial];
+  
+//   // }else if(num >= 20 && num < 100){
+  
+//   //   let decena = String(num)[0];
+
+//   //   if(num >= 21 && num < 30){
+//   //     numero = decenas[decena - 2].split('').slice(0,5).concat('i').join('') +''+ unidades[unidad];
+//   //   }else{
+//   //     numero = decenas[decena - 2] +' y '+unidades[unidad];
+//   //   }
+//   //   return numero;
+//   // }
+// }
+// function centenas(){
+
+// }
