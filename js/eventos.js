@@ -84,11 +84,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('resultadoCamelCase').innerText = `lowerCamelCase: ${camel}`;
         });
         
-        // // Ejercicio 10
-        // document.getElementById('btnNumberToWords').addEventListener('click', () => {
-            //     const cadena = document.getElementById('cadenaNumberToWords').value;
-    //     const numero = numberToWords(+cadena);
-    //     console.log(numero);
-    //     document.getElementById('resultadoNumberToWords').innerText = `${numero}`;
-    // });
+        // Ejercicio 10
+        document.getElementById('btnNumberToWords').addEventListener('click', () => {
+                const cadena = document.getElementById('cadenaNumberToWords').value;
+        const numero = numberToWords(+cadena);
+        console.log(numero);
+        document.getElementById('resultadoNumberToWords').innerText = `${numero}`;
+    });
 });
