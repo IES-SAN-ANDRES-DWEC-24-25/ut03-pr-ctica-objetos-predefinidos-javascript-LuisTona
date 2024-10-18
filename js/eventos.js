@@ -86,9 +86,12 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Ejercicio 10
         document.getElementById('btnNumberToWords').addEventListener('click', () => {
-                const cadena = document.getElementById('cadenaNumberToWords').value;
+        const cadena = document.getElementById('cadenaNumberToWords').value;
+        if(num > 999999 || !Number.isInteger(num) || num < 0){
+            alert('El número debe ser un entero positivo entre 0 y 999,999.');
+        }
         const numero = numberToWords(+cadena);
-        console.log(numero);
+        
         document.getElementById('resultadoNumberToWords').innerText = `${numero}`;
     });
 });
