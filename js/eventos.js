@@ -8,10 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Ejercicio 2
     document.getElementById('btnAreaCirculo').addEventListener('click', () => {
         const radio = parseFloat(document.getElementById('radioCirculo').value);
-        if (isNaN(radio) || radio < 0) {
-            alert('Por favor, ingrese un radio válido.');
-            return;
-        }
         const area = calcularAreaCirculo(radio);
         document.getElementById('resultadoArea').innerText = `Área del Círculo: ${area}`;
     });
@@ -28,19 +24,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const celsius = parseFloat(document.getElementById('celsius').value);
         if (isNaN(celsius)) {
             alert('Por favor, ingrese un valor válido para Celsius.');
-            return;
+        }else{
+            const fahrenheit = celsiusAFahrenheit(celsius);
+            document.getElementById('resultadoFahrenheit').innerText = `${celsius}°C = ${fahrenheit}°F`;
         }
-        const fahrenheit = celsiusAFahrenheit(celsius);
-        document.getElementById('resultadoFahrenheit').innerText = `${celsius}°C = ${fahrenheit}°F`;
     });
 
     // Ejercicio 5
     document.getElementById('btnFormatearNumero').addEventListener('click', () => {
         const numero = parseFloat(document.getElementById('numeroFormatear').value);
-        if (isNaN(numero)) {
-            alert('Por favor, ingrese un número válido.');
-            return;
-        }
         const numeroFormateado = formatearNumero(numero);
         document.getElementById('resultadoNumero').innerText = `Número Formateado: ${numeroFormateado}`;
     });
@@ -78,25 +70,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Ejercicio 8
-    document.getElementById('btnNumberToWords').addEventListener('click', () => {
-        const cadena = document.getElementById('cadenaNumberToWords').value;
-        const numero = numberToWords(+cadena);
-        console.log(numero);
-        document.getElementById('resultadoNumberToWords').innerText = `${numero}`;
-    });
-
-    // Ejercicio 9
     document.getElementById('btnVerificarPalindromo').addEventListener('click', () => {
-        const cadena = document.getElementById('cadenaPalindromo').value;
-        const esPal = esPalindromo(cadena);
-        const mensaje = esPal ? 'Es un palíndromo.' : 'No es un palíndromo.';
-        document.getElementById('resultadoPalindromo').innerText = mensaje;
-    });
-
-    // Ejercicio 10
-    document.getElementById('btnCamelCase').addEventListener('click', () => {
-        const cadena = document.getElementById('cadenaCamelCase').value;
-        const camel = camelCase(cadena);
-        document.getElementById('resultadoCamelCase').innerText = `lowerCamelCase: ${camel}`;
+            const cadena = document.getElementById('cadenaPalindromo').value;
+            const esPal = esPalindromo(cadena);
+            const mensaje = esPal ? 'Es un palíndromo.' : 'No es un palíndromo.';
+            document.getElementById('resultadoPalindromo').innerText = mensaje;
+        });
+        
+        // // Ejercicio 9
+        document.getElementById('btnCamelCase').addEventListener('click', () => {
+                const cadena = document.getElementById('cadenaCamelCase').value;
+                const camel = camelCase(cadena);
+                document.getElementById('resultadoCamelCase').innerText = `lowerCamelCase: ${camel}`;
+        });
+        
+        // Ejercicio 10
+        document.getElementById('btnNumberToWords').addEventListener('click', () => {
+        const cadena = document.getElementById('cadenaNumberToWords').value;
+        if(cadena > 999 || !Number.isInteger(+cadena) || cadena < 0){
+            alert('El número debe ser un entero positivo entre 0 y 999.');
+        }
+        const numero = numberToWords(+cadena);
+        
+        document.getElementById('resultadoNumberToWords').innerText = `${numero}`;
     });
 });
