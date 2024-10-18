@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Ejercicio 10
         document.getElementById('btnNumberToWords').addEventListener('click', () => {
         const cadena = document.getElementById('cadenaNumberToWords').value;
-        if(cadena > 999 || !Number.isInteger(cadena) || cadena < 0){
+        if(cadena > 999 || !Number.isInteger(+cadena) || cadena < 0){
             alert('El número debe ser un entero positivo entre 0 y 999.');
         }
         const numero = numberToWords(+cadena);
